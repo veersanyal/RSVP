@@ -4,17 +4,17 @@
       <div class="flex px-2 hover:font-bold hover:underline">
         <NuxtLink
           v-if="menu.to"
-          class="text-sm cursor-pointer font-sans w-full whitespace-nowrap px-2 flex"
+          class=" cursor-pointer text-lg font-sans w-full whitespace-nowrap px-2 py-0 flex"
           :to="menu.to"
         >
           <div
             v-if="menu.icon"
-            class="border p-0 m-0 text-2xl"
+            class="border p-0 m-0 text-3xl"
             :class="menu.icon"
           />
           <div
             v-if="menu.label"
-            class="w-full item-center px-2 pt-1 align-middle cursor-pointer"
+            class="w-full item-center px-2 pt-0 align-middle cursor-pointer"
           >
             {{ menu.label }}
           </div>
@@ -35,7 +35,7 @@
         </div>
       </div>
     </div>
-    <div class="hidden md:flex">
+    <div v-if="props.showProfileMenu" class="hidden md:flex">
       <AppDropdown
         :currentUser="props.currentUser"
         :onlyProfileMenu="showonlyProfileMenu"
@@ -50,6 +50,10 @@ import { useMenu } from "@/composables/useMenu";
 const props = defineProps({
   currentUser: {
     type: Object,
+  },
+  showProfileMenu: {
+    type: Boolean,
+    default: false
   },
 });
 const { AppMenu } = useMenu(props.currentUser);

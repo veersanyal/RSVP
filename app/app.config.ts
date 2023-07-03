@@ -2,7 +2,7 @@ export default defineAppConfig({
   theme: "light",
   locale: "en",
   logoImage:
-    "https://greencornerlive.in/wp-content/themes/plantish/images/webi/logo.svg",
+    "/images/gatherlyLogo.png",
   firebaseConfig: {
       appId: process.env.FIREBASE_APPID,
       apiKey: process.env.FIREBASE_API_KEY,

@@ -1,6 +1,8 @@
 <template >
-    <div>
-    <div class="w-screen bg-gray-300"> this is from layout </div>
+<div>
+    <AppGatherly></AppGatherly> 
+<div>
     <slot></slot>
+</div>
 </div>
 </template>

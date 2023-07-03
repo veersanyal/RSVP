@@ -1,12 +1,15 @@
 <template>
   <UDropdown :items="items" mode="hover" :popper="{ placement: 'bottom-end' }">
     <UButton
-      color="white"
-      :trailing-icon="icon"
-      :label="label"
+      color="black"
+      :label="props.label"
+      :icon = "icon"
       variant="ghost"
       class="text-2xl"
     />
+    <template #leading>
+    <UAvatar v-if="state.currentUser && state.currentUser.photoUrl" :src="state.currentUser.photoURL" size="3xs" />
+  </template>
   </UDropdown>
 </template>
 <script lang="ts" setup>
@@ -29,6 +32,9 @@ let props = defineProps({
     type: String,
     default: "",
   },
+  avatar: {
+    type: String
+  }
 });
 
 let state = reactive({ currentUser: props.currentUser });
