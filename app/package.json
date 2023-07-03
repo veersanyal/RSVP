@@ -11,7 +11,18 @@
   "devDependencies": {
     "@nuxt/devtools": "latest",
     "@nuxtjs/tailwindcss": "^6.8.0",
+    "@nuxthq/ui": "^2.4.0",
+    "add": "^2.0.6",
+    "autoprefixer": "^10.4.14",
     "@types/node": "^18",
-    "nuxt": "^3.6.1"
+    "nuxt": "^3.6.1",
+    "nuxt-icon": "^0.4.1"
+  },
+  "dependencies": {
+    "@formkit/nuxt": "^0.17.4",
+    "firebase": "^9.22.2",
+    "firebase-admin": "^11.9.0",
+    "firebaseui": "^6.0.2",
+    "vue3-popper": "^1.5.0"
   }
 }
