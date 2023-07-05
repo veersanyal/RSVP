@@ -1,18 +1,12 @@
 <template>
   <UDropdown :items="items" mode="hover" :popper="{ placement: 'bottom-end' }">
-    <UButton
-      color="black"
-      :label="props.label"
-      :icon = "icon"
-      variant="ghost"
-      class="text-2xl"
-    />
+    <UButton color="black" :label="props.label" :icon="icon" variant="ghost" class="text-2xl" />
     <template #leading>
-    <UAvatar v-if="state.currentUser && state.currentUser.photoUrl" :src="state.currentUser.photoURL" size="3xs" />
-  </template>
+      <UAvatar v-if="state.currentUser && state.currentUser.photoUrl" :src="state.currentUser.photoURL" size="3xs" />
+    </template>
   </UDropdown>
 </template>
-<script lang="ts" setup>
+<script  setup>
 import { useMenu } from "@/composables/useMenu";
 import { onAuthStateChanged, getAuth } from "firebase/auth";
 
@@ -23,6 +17,10 @@ let props = defineProps({
   onlyProfileMenu: {
     type: Boolean,
     default: false,
+  },
+  onlyAppMenu: {
+    type: Boolean,
+    default: true,
   },
   icon: {
     type: String,
@@ -36,24 +34,17 @@ let props = defineProps({
     type: String
   }
 });
-
 let state = reactive({ currentUser: props.currentUser });
 const { $logout, $fireBaseApp } = useNuxtApp();
 if (process.client) {
   if (getAuth($fireBaseApp).currentUser) {
     state.currentUser = getAuth($fireBaseApp).currentUser || {};
-    console.log(state.currentUser, "current user from firebaseauthcurrentuser");
   }
   onAuthStateChanged(getAuth($fireBaseApp), (user) => {
     if (user) {
       state.currentUser = user;
-      console.log(state.currentUser, "current user from onAuthStateChanged");
     } else {
       state.currentUser = {};
-      console.log(
-        state.currentUser,
-        "current user from onAuthStateChanged value reset"
-      );
     }
     ProfileMenu = useMenu(state.currentUser).ProfileMenu;
   });
@@ -62,7 +53,6 @@ let { AppMenu, ProfileMenu, LoggedOutAppMenu, LoggedinAppMenu } = useMenu(
   state.currentUser
 );
 const handleLogout = async () => {
-  const { $logout } = useNuxtApp();
   await $logout();
   await navigateTo("/");
   state.currentUser = {};
@@ -75,18 +65,21 @@ const signOutMenu = [
     click: handleLogout,
   },
 ];
-console.log("currentuser in props", props.currentUser);
 
 const items = computed(() => {
   if (state.currentUser && state.currentUser.uid) {
     if (props.onlyProfileMenu) {
       return [ProfileMenu, LoggedinAppMenu, signOutMenu];
+    } else if (props.onlyAppMenu) {
+      return [AppMenu]
     } else {
       return [AppMenu, ProfileMenu, LoggedinAppMenu, signOutMenu];
     }
   } else {
     if (props.onlyProfileMenu) {
       return [ProfileMenu, LoggedOutAppMenu];
+    } else if (props.onlyAppMenu) {
+      return [AppMenu]
     } else return [AppMenu, ProfileMenu, LoggedOutAppMenu];
   }
 });

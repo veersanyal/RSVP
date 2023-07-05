@@ -8,6 +8,14 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  vite: {
+    vue: {
+      script: {
+        defineModel: true,
+        propsDestructure: true,
+      },
+    },
+  },
   modules: ["nuxt-icon", "@nuxthq/ui", "@formkit/nuxt"],
   css: ["~/assets/css/main.css", "~/assets/css/popper.css"],
   postcss: {
