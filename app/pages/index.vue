@@ -1,7 +1,7 @@
 import { CardBlogArticles, CardEventArticle, CardEventEditCard } from '../.nuxt/components';
 <template >
-  <FontChanger v-model:content="data.title" v-model:customfont="data.font"
-    class="block mb-3 text-3xl font-semibold tracking-tight text-gray" />
+  <FontChanger v-model:content="data.title" v-model:customfont="data.font" v-model:customcolor="data.color"
+    class="block mb-3 text-3xl font-semibold tracking-tight" />
   <ContainerRibbon>
     <div class="flex flex-wrap  justify-start overflow-auto  ">
       <CardEventTextOnImage class=""></CardEventTextOnImage>
@@ -29,6 +29,7 @@ const data = reactive({
   description: "This is a description",
   image: "/images/nightSky.jpg",
   cti: "This is a cti",
-  font: "Caveat"
+  font: "Caveat",
+  color: "text-gray-900"
 })
 </script>
