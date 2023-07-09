@@ -1,7 +1,6 @@
 import { CardBlogArticles, CardEventArticle, CardEventEditCard } from '../.nuxt/components';
 <template >
-  <FontChanger v-model:content="data.title" v-model:customfont="data.font" v-model:customcolor="data.color"
-    class="block mb-3 text-3xl font-semibold tracking-tight" />
+  <FormEventOptions />
   <ContainerRibbon>
     <div class="flex flex-wrap  justify-start overflow-auto  ">
       <CardEventTextOnImage class=""></CardEventTextOnImage>
