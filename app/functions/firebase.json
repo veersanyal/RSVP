@@ -1,0 +1,27 @@
+{
+  "functions": {
+    "predeploy": [
+      "yarn --cwd ./  build"
+    ],
+    "source": "./"
+  },
+  "hosting": {
+    "public": ".output/public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  },
+  "emulators": {
+    "functions": {
+      "port": 5001
+    },
+    "firestore": {
+      "port": 8080
+    },
+    "ui": {
+      "enabled": true
+    }
+  }
+}

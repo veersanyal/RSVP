@@ -1,24 +1,21 @@
 <template>
-  <div class="h-screen border px-2 bg-white py-4 shadow-xl ring-1 ring-gray-900/5 sm:mx-auto min-w-96 sm:rounded-lg">
-    <div
-      class="relative h-full w-96 overflow-hidden bg-white rounded-lg shadow-lg cursor-pointer hover:transform hover:scale-105 duration-300">
-      <img class="object-cover h-5/6 w-full p-4 border rounded-lg" :src="props.image" alt="Flower and sky" />
-      <div class="absolute top-10 left-6 px-6 py-4">
-        <FontChanger v-model:content="data.titleContent" v-model:customfont="data.titleFont"
-          v-model:customcolor="data.titleColor" class="block mb-3 text-3xl font-semibold tracking-tight text-gray" />
-        <FontChanger v-model:content="data.descriptionContent" v-model:customfont="data.descriptionFont"
-          v-model:customcolor="data.descriptionColor" class="block leading-normal text-xl text-gray-800 pt-4 sm:pt-0" />
-        <FontChanger v-model:content="data.dateContent" v-model:customfont="data.dateFont"
-          v-model:customcolor="data.dateColor"
-          class="block leading-normal font-bold text-sm text-gray-100 pt-4 sm:pt-2" />
-        <FontChanger v-model:content="data.locationContent" v-model:customfont="data.locationFont"
-          v-model:customcolor="data.locationColor" class="block leading-normal font-bold text-sm text-gray-100 pt-2" />
-      </div>
-      <div class="flex justify-end align-bottom">
-        <button class="p-2 px-8 my-4 z-30 justify-end rounded-md m-2 bg-indigo-500 hover:bg-indigo-700 text-white">
-          Edit
-        </button>
-      </div>
+  <div
+    class="relative h-5/6 w-96 h-5/6 sm:h-4/5 overflow-hidden bg-white rounded-lg shadow-lg cursor-pointer hover:transform hover:scale-105 duration-300">
+    <img class="h-4/5 object-cover p-4 w-full border rounded-lg" :src="props.image" alt="Flower and sky" />
+    <div class="absolute top-10 left-6 px-6 py-4">
+      <FontChanger v-model:content="data.titleContent" v-model:customfont="data.titleFont"
+        v-model:customcolor="data.titleColor" class="block mb-3 text-3xl font-semibold tracking-tight text-gray" />
+      <FontChanger v-model:content="data.descriptionContent" v-model:customfont="data.descriptionFont"
+        v-model:customcolor="data.descriptionColor" class="block leading-normal text-xl text-gray-800 pt-4 sm:pt-0" />
+      <FontChanger v-model:content="data.dateContent" v-model:customfont="data.dateFont"
+        v-model:customcolor="data.dateColor" class="block leading-normal font-bold text-sm text-gray-100 pt-4 sm:pt-2" />
+      <FontChanger v-model:content="data.locationContent" v-model:customfont="data.locationFont"
+        v-model:customcolor="data.locationColor" class="block leading-normal font-bold text-sm text-gray-100 pt-2" />
+    </div>
+    <div class="flex justify-end align-bottom">
+      <button class="p-2 px-8 my-2 z-30 justify-end rounded-md m-2 bg-indigo-500 hover:bg-indigo-700 text-white">
+        Edit
+      </button>
     </div>
   </div>
 </template>

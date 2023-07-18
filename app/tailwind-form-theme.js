@@ -27,14 +27,13 @@ export default {
       "flex p-[3px] w-full h-full absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2",
     help: "mb-2 mt-1.5",
     input:
-      "absolute w-0 h-0 overflow-hidden opacity-0 pointer-events-none peer",
+      "absolute w-0 h-0 overflow-hidden opacity-0 pointer-events-none peer ",
     inner: "$remove:formkit-disabled:bg-gray-200",
     label: "$reset text-sm text-gray-700 mt-1 select-none",
     wrapper: "flex items-center mb-1",
   },
   "family:button": {
-    input:
-      "$reset inline-flex items-center bg-blue-600 text-white text-sm font-normal py-3 px-6 rounded focus-visible:outline-2 focus-visible:outline-blue-600 focus-visible:outline-offset-2 formkit-disabled:bg-gray-400 formkit-loading:before:w-4 formkit-loading:before:h-4 formkit-loading:before:mr-2 formkit-loading:before:border formkit-loading:before:border-2 formkit-loading:before:border-r-transparent formkit-loading:before:rounded-3xl formkit-loading:before:border-white formkit-loading:before:animate-spin",
+    input: '$reset inline-flex items-center bg-blue-600 border  text-sm font-normal py-3 px-6 rounded focus-visible:outline-2 focus-visible:outline-blue-600 focus-visible:outline-offset-2 formkit-disabled:bg-gray-400 formkit-loading:before:w-4 formkit-loading:before:h-4 formkit-loading:before:mr-2 formkit-loading:before:border formkit-loading:before:border-2 formkit-loading:before:border-r-transparent formkit-loading:before:rounded-3xl formkit-loading:before:border-white formkit-loading:before:animate-spin',
     wrapper: "mb-1",
     prefixIcon: "$reset block w-4 -ml-2 mr-2 stretch",
     suffixIcon: "$reset block w-4 ml-2 stretch",

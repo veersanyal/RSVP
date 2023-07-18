@@ -1,9 +1,11 @@
 <template>
     <div>
-        <span v-show="!editMode" @click="handleEditionMode" v-bind="$attrs" :style="customstyle">
-            {{ content }}
-        </span>
-        <div v-show="editMode" class="border p-2 bg-gray-100 rounded-xl">
+        <div class=" flex flex-wrap w-96 break-words">
+            <span v-show="!editMode" @click="handleEditionMode" v-bind="$attrs" :style="customstyle">
+                {{ content }}
+            </span>
+        </div>
+        <div v-show="editMode" class="border p-2 bg-gray-100 rounded-xl ">
             <input ref="input" v-model="content" aria-describedby="item-content" v-bind="$attrs" name="content" type="text"
                 tabindex="0" @keydown.enter="editMode = false" :style="customfont ? customstyle : ''"
                 class="text-gray-600 bg-inherit" />

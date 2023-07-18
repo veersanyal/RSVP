@@ -1,23 +1,3 @@
-interface Avatar {
-  src: string;
-  size?: string;
-  color?: string;
-  text?: string;
-}
-interface MenuItems {
-  to?: string;
-  exact?: boolean;
-  label: string;
-  slot?: string;
-  icon?: string;
-  iconClass?: string;
-  avatar?: Partial<Avatar>;
-  shortcuts?: string[];
-  disabled?: boolean;
-  click?: Function;
-}
-[];
-
 const getProfileMenu = (currentUser: Record<string, any> | void) => {
   if (currentUser && currentUser.uid) {
     return [
@@ -31,7 +11,7 @@ const getProfileMenu = (currentUser: Record<string, any> | void) => {
   }
 };
 export const useMenu = (currentUser: Record<string, any> | void) => {
-  const AppMenu: MenuItems[] = [
+  const AppMenu: Array<MenuItem> = [
     { label: "Home", icon: "i-heroicons-home-20-solid", to: "/" },
     { label: "Shop", icon: "i-heroicons-shopping-bag", to: "/" },
     { label: "Blog", icon: "i-heroicons-newspaper", to: "/" },
@@ -41,7 +21,7 @@ export const useMenu = (currentUser: Record<string, any> | void) => {
       to: "/",
     },
   ];
-  const LoggedinAppMenu: MenuItems[] = [
+  const LoggedinAppMenu: Array<MenuItem> = [
     {
       label: "Orders",
       icon: "i-heroicons-gift",
@@ -68,7 +48,7 @@ export const useMenu = (currentUser: Record<string, any> | void) => {
       to: "/login",
     },
   ];
-  const LoggedOutAppMenu: MenuItems[] = [
+  const LoggedOutAppMenu: Array<MenuItem> = [
     {
       label: "Sign In",
       icon: "mdi:login",

@@ -1,15 +1,18 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
+    "moduleResolution": "node",
+    "module": "ES2022",
+    // "noImplicitReturns": true,
+    // "noUnusedLocals": true,
+    "esModuleInterop": true,
+    "rootDir": "src",
     "outDir": "lib",
     "sourceMap": true,
     "strict": true,
-    "target": "es2017"
+    "target": "ES2022",
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */
   },
   "compileOnSave": true,
-  "include": [
-    "src"
-  ]
+  "include": ["src"]
 }
