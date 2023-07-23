@@ -1,6 +1,3 @@
-<!---- Large Medium Screen App Bar  uses MenuIcon Component Search Component 
-       Needs the Search Handler function to be implemented 
--->
 <template>
   <!-- Wrapper div for Navbar-->
   <div class="w-screen h-16 bg-navbg py-2 flex justify-between overflow-hidden">

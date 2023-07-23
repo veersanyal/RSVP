@@ -1,11 +1,3 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
-// export default defineNuxtConfig({
-//   devtools: { enabled: true },
-//   modules: [
-//       '@nuxtjs/tailwindcss'
-//     ]
-//  })
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
   vite: {
@@ -16,13 +8,27 @@ export default defineNuxtConfig({
       },
     },
   },
-  modules: ["nuxt-icon", "@nuxthq/ui", "@formkit/nuxt"],
+  modules: ["nuxt-icon", "@nuxthq/ui", "@formkit/nuxt", '@nuxt/image'],
   css: ["~/assets/css/main.css", "~/assets/css/popper.css"],
   postcss: {
     plugins: {
       tailwindcss: {},
       autoprefixer: {},
     },
+  },
+  image: {
+    imagekit: {
+      baseURL: 'https://ik.imagekit.io/ztutmqiyjy/rsvp'
+    },
+    presets: {
+      avatar: {
+        modifiers: {
+          format: 'jpg',
+          width: 50,
+          height: 50
+        }
+      }
+    }
   },
   runtimeConfig: {
     public: {

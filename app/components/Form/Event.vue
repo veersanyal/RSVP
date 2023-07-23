@@ -1,50 +1,39 @@
 <template>
-    <FormEventOptions v-if="isEventTypeStep" @chosen="onEventypeSelected"></FormEventOptions>
-    <FormEventDetails v-if="isEventDetailsStep" @detailschosen="onEventDetailsSelected"></FormEventDetails>
-    <FormEventTemplate v-if="isEventTemplateStep" :titleContent="model.titleContent"
-        :descriptionContent="model.descriptionContent" :locationContent="model.locationContent" :when="model.when"
-        :from="model.from" :to="model.to"></FormEventTemplate>
+    <FormEventOptions v-if="display == `EVENTOPTIONS`" @chosen="onEventypeSelected"></FormEventOptions>
+    <FormEventDetails v-if="display == `EVENTDETAILS`" @detailschosen="onEventDetailsSelected"></FormEventDetails>
+    <FormImageOptions v-if="display == `EVENTIMAGES`" @imagechosen="onEventImageSelected"></FormImageOptions>
+    <FormEventTemplate v-if="display == `EVENTTEMPLATES`" :titleContent="model.titleContent"
+        :imageContent="model.imageContent" :descriptionContent="model.descriptionContent"
+        :locationContent="model.locationContent" :when="model.when" :from="model.from" :to="model.to"></FormEventTemplate>
 </template>
 
 <script setup lang="ts">
-const isEventTypeStep = ref(true);
-const isEventDetailsStep = ref(false);
-const isEventTemplateStep = ref(false);
-const isInviteStep = ref(false);
+const model = reactive<Partial<EventCard>>({});
+const display = ref('EVENTOPTIONS');
+
 const onEventypeSelected = (type: string) => {
-    isEventTypeStep.value = false;
-    isEventDetailsStep.value = true;
-    isEventTemplateStep.value = false;
-    isInviteStep.value = false;
-    model.EventTypeId = type;
+    display.value = 'EVENTDETAILS';
+    model.eventTypeId = type;
 }
 const onEventDetailsSelected = (data: any) => {
-    console.log("onEventDetialsSelected", data);
-    isEventTypeStep.value = false;
-    isEventDetailsStep.value = false;
-    isEventTemplateStep.value = true;
-    isInviteStep.value = false;
+    display.value = 'EVENTIMAGES';
     model.titleContent = data.Title;
     model.descriptionContent = data.Description;
     model.when = data.When;
     model.from = data.From;
     model.to = data.To;
     model.locationContent = data.Location;
-    console.log("model", model);
+}
+const onEventImageSelected = (data: any) => {
+    model.imageContent = data;
+    display.value = 'EVENTTEMPLATES';
 }
 const onEventTemplateSelected = () => {
-    isEventTypeStep.value = false;
-    isEventDetailsStep.value = false;
-    isEventTemplateStep.value = false;
-    isInviteStep.value = true;
+    display.value = 'EVENTINVITES';
     console.log("onEventTemplateSelected");
 }
 const onInviteCompleted = () => {
-    isEventTypeStep.value = false;
-    isEventDetailsStep.value = false;
-    isEventTemplateStep.value = false;
-    isInviteStep.value = false;
+    display.value = 'COMPLETE';
 }
 const selectedEventType = ref('');
-const model = reactive<Partial<EventCard>>({});
 </script>

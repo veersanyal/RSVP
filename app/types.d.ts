@@ -17,8 +17,9 @@ interface MenuItem {
   click?: Function;
 }
 interface EventCard {
-  EventTypeId?: string;
+  eventTypeId?: string;
   templateType?: string;
+  imageContent?: string;
   titleContent?: string;
   descriptionContent?: string;
   when?: string;

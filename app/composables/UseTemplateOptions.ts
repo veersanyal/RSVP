@@ -10,24 +10,19 @@ const defaults = {
 };
 const DefaultCardOptions: Array<Partial<EventCard>> = [
   {
-    image: "/images/birthday-0.jpg",
     ...defaults,
   },
 
   {
-    image: "/images/birthday-1.jpg",
     ...defaults,
   },
   {
-    image: "/images/birthday-2.jpg",
     ...defaults,
   },
   {
-    image: "/images/birthday-3.jpg",
     ...defaults,
   },
   {
-    image: "/images/birthday-4.jpg",
     ...defaults,
   },
 ];
