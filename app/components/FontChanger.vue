@@ -1,8 +1,6 @@
 <template>
     <div>
-        <!--<div class="flex flex-wrap w-96"> -->
-        <span v-show="!editMode" @click="handleEditionMode" v-bind="$attrs" :style="customstyle"
-            class="backdrop-opacity-90">
+        <span v-show="!editMode" @click="handleEditionMode" v-bind="$attrs" :style="customstyle">
             {{ content }}
         </span>
         <!-- </div> -->
@@ -30,6 +28,8 @@
 const content = defineModel('content');
 const customfont = defineModel('customfont');
 const customcolor = defineModel('customcolor');
+console.log('custom font', customfont.value);
+console.log('custom font', customcolor.value);
 useHead({
     link: [{ rel: 'stylesheet', href: `https://fonts.googleapis.com/css2?family=${customfont.value}&display=swap` }]
 })

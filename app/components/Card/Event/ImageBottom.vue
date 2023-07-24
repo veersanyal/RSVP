@@ -1,21 +1,23 @@
-<template>
-  <div class="relative w-72 bg-white rounded-lg shadow-lg cursor-pointer hover:transform hover:scale-105 duration-300">
-    <nuxt-img provider="imagekit" :src="data.imageContent" :modifiers="{ radius: 40, bg: '272B38' }"
-      class=" h-96 object-cover p-2 w-full border rounded-lg backdrop-opacity-10" alt="Flower and sky" />
-    <div class="absolute top-10 left-6 px-6 py-4 backdrop-opacity-90">
-      <FontChanger v-model:content="data.titleContent" v-model:customfont="data.titleFont"
-        v-model:customcolor="data.titleColor"
-        class="block mb-3 text-3xl font-semibold tracking-tight text-gray overflow-hidden" />
-      <FontChanger v-model:content="data.descriptionContent" v-model:customfont="data.descriptionFont"
-        v-model:customcolor="data.descriptionColor" class="block leading-normal text-xl text-gray-800 pt-4 sm:pt-0" />
-      <FontChanger v-model:content="data.dateContent" v-model:customfont="data.dateFont"
-        v-model:customcolor="data.dateColor" class="block leading-normal font-bold text-sm text-gray-100 pt-4 sm:pt-2" />
-      <FontChanger v-model:content="data.locationContent" v-model:customfont="data.locationFont"
-        v-model:customcolor="data.locationColor" class="block leading-normal font-bold text-sm text-gray-100 pt-2" />
+<template >
+  <div class="  bg-white shadow-xl ring-1 ring-gray-900/5 sm:mx-auto w-96 sm:rounded-lg">
+    <div class="flex-auto px-6 py-2">
+      <span class="mb-2 flex items-center text-sm font-semibold">
+        {{ data.titleContent }} </span>
+      <p class="mb-2 text-base font-light">
+        {{ data.descriptionContent }}
+      </p>
+      <p class="mb-2 text-base font-light">
+        {{ data.dateContent }}
+      </p>
+      <p class="text-base font-light">
+        {{ data.locationContent }}
+      </p>
     </div>
+    <nuxt-img provider="imagekit" :src="data.imageContent"
+      class="h-64 w-full object-cover border-16 rounded-lg border-spacing-4" alt="" />
   </div>
 </template>
-<script setup lang="ts">
+<script setup lang="ts" >
 const props = defineProps({
   titleContent: { type: String, default: "This is a Title" },
   titleFont: { type: String, default: "Caveat" },
