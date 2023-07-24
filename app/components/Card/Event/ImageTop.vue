@@ -1,19 +1,28 @@
 <template >
     <div class="  bg-white shadow-xl ring-1 ring-gray-900/5 sm:mx-auto w-96 sm:rounded-lg">
         <nuxt-img provider="imagekit" :src="data.imageContent"
-            class="h-64 w-full object-cover border-16 rounded-lg border-spacing-4" alt="" />
-        <div class="flex-auto px-6 py-2">
-            <span class="mb-2 flex items-center text-2xl font-bold" :color=data.titleColor>
-                {{ data.titleContent }} </span>
-            <p class="mb-2 text-base font-light" :color=data.descriptionColor>
-                {{ data.descriptionContent }}
-            </p>
-            <p class="mb-2 text-base font-light" :color=data.dateColor>
-                {{ data.dateContent }}
-            </p>
-            <p class="text-base font-light" :color=data.locationColor>
-                {{ data.locationContent }}
-            </p>
+            class="h-56 w-full object-cover border-16 rounded-lg border-spacing-4" alt="" />
+        <div class="block w-full">
+            <div class="flex justify-center">
+                <FontChanger :color=data.titleColor v-model:content="data.titleContent" v-model:customfont="data.titleFont"
+                    v-model:customcolor="data.titleColor"
+                    class="block mb-3 text-3xl font-semibold tracking-tight overflow-hidden" />
+            </div>
+            <div class="flex justify-center">
+                <FontChanger v-model:content="data.descriptionContent" v-model:customfont="data.descriptionFont"
+                    v-model:customcolor="data.descriptionColor" :color=data.descriptionColor
+                    class="block leading-normal text-xl  pt-4 sm:pt-0" />
+            </div>
+            <div class="flex justify-center">
+                <FontChanger v-model:content="data.dateContent" v-model:customfont="data.dateFont"
+                    v-model:customcolor="data.dateColor" :color=data.dateColor
+                    class="block leading-normal font-bold text-sm  pt-4 sm:pt-2" />
+            </div>
+            <div class="flex justify-center">
+                <FontChanger v-model:content="data.locationContent" v-model:customfont="data.locationFont"
+                    v-model:customcolor="data.locationColor" :color=data.locationColor
+                    class="block leading-normal font-bold text-sm  pt-2" />
+            </div>
         </div>
     </div>
 </template>
