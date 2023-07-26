@@ -4,10 +4,9 @@
             {{ content }}
         </span>
         <!-- </div> -->
-        <div v-show="editMode" class="border p-2 bg-gray-100 rounded-xl ">
-            <input ref="input" v-model="content" aria-describedby="item-content" v-bind="$attrs" name="content" type="text"
-                tabindex="0" @keydown.enter="editMode = false" :style="customfont ? customstyle : ''"
-                class="text-gray-600 bg-inherit" />
+        <div v-show="editMode" class="border p-2 bg-gray-100 rounded-xl mix-blend-normal">
+            <input ref="input" v-model="content" aria-describedby="item-content" name="content" type="text" tabindex="0"
+                @keydown.enter="editMode = false" :style="customfont ? customstyle : ''" class="text-gray-600 bg-inherit" />
             <div class="text-xs font-light  text-gray-700 p-2">Font</div>
             <div class="w-32 text-xs font-light  text-gray-700">
                 <USelectMenu v-model="customfont" :options="fontOptions" class="text-xs font-light  text-gray-700">

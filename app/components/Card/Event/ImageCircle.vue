@@ -1,29 +1,30 @@
 <template >
-  <div class="  bg-white shadow-xl ring-1 ring-gray-900/5 sm:mx-auto w-96 sm:rounded-lg">
+  <div
+    class="bg-gray-200 shadow-xl ring-1 ring-gray-900/5 sm:mx-auto w-96 min-h-[460px] sm:rounded-lg border shadow-lg cursor-pointer hover:transform hover:scale-105 duration-300">
     <div class="flex justify-center">
-      <nuxt-img provider="imagekit" :src="data.imageContent" width="220px" :modifiers="{ radius: 180, bg: '272B38' }"
-        class=" border-spacing-4" alt="" />
+      <nuxt-img provider="imagekit" :src="data.imageContent" width="240px" :modifiers="{ radius: 240, bg: '272B38' }"
+        class=" m-2 border-spacing-4 rounded-full ring-2 ring-gray-400 ring-offset-2 " alt="" />
     </div>
-    <div class="block w-full">
-      <div class="flex justify-center">
+    <div class="block w-full p-2 ">
+      <div class="flex justify-center text-ellipsis">
         <FontChanger :color=data.titleColor v-model:content="data.titleContent" v-model:customfont="data.titleFont"
           v-model:customcolor="data.titleColor"
-          class="block mb-3 text-3xl font-semibold tracking-tight overflow-hidden" />
+          class="block mb-3 p-2 text-4xl font-semibold tracking-tight text-ellipsis overflow-hidden " />
       </div>
-      <div class="flex justify-center">
+      <div class="flex justify-center text-ellipsis">
         <FontChanger v-model:content="data.descriptionContent" v-model:customfont="data.descriptionFont"
           v-model:customcolor="data.descriptionColor" :color=data.descriptionColor
-          class="block leading-normal text-xl  pt-4 sm:pt-0" />
+          class="block tracking-tight text-ellipsis overflow-hidden text-xl  pt-4 sm:pt-0" />
       </div>
-      <div class="flex justify-center">
+      <div class="flex justify-center text-ellipsis">
         <FontChanger v-model:content="data.dateContent" v-model:customfont="data.dateFont"
           v-model:customcolor="data.dateColor" :color=data.dateColor
-          class="block leading-normal font-bold text-sm  pt-4 sm:pt-2" />
+          class="block leading-normal font-bold text-ellipsis overflow-hidden text-sm  pt-4 sm:pt-2" />
       </div>
-      <div class="flex justify-center">
+      <div class="flex justify-center text-ellipsis">
         <FontChanger v-model:content="data.locationContent" v-model:customfont="data.locationFont"
           v-model:customcolor="data.locationColor" :color=data.locationColor
-          class="block leading-normal font-bold text-sm  pt-2" />
+          class="block leading-normal font-bold text-ellipsis overflow-hidden text-sm  pt-2" />
       </div>
     </div>
   </div>

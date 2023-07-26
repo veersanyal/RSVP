@@ -5,6 +5,9 @@
     <FormEventTemplate v-if="display == `EVENTTEMPLATES`" :titleContent="model.titleContent"
         :imageContent="model.imageContent" :descriptionContent="model.descriptionContent"
         :locationContent="model.locationContent" :when="model.when" :from="model.from" :to="model.to"></FormEventTemplate>
+    <FormEventTemplate :titleContent="model.titleContent" :imageContent="model.imageContent"
+        :descriptionContent="model.descriptionContent" :locationContent="model.locationContent" :when="model.when"
+        :from="model.from" :to="model.to"></FormEventTemplate>
 </template>
 
 <script setup lang="ts">

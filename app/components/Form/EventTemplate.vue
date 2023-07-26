@@ -4,14 +4,14 @@
             Choose a Style for the Invitation Card ?
         </div>
     </div>
-    <div class=" flex p-4 flex-wrap justify-center justify-items-center items-center  m-2">
-        <CardEventImageBackground :titleContent="data.titleContent" :titleFont="data.titleFont"
-            :titleColor="data.titleColor" :descriptionContent="props.descriptionContent"
-            :descriptionFont="data.descriptionFont" :descriptionColor="data.descriptionColor" :dateFont="data.dateFont"
-            :dateColor="data.dateColor" :locationFont="data.locationFont" :locationColor="data.locationColor"
-            :locationContent="data.locationContent" :imageContent="data.imageContent"
-            :dateContent="`On ${data.when}   from ${data.from} till ${data.to}`" class="p-2 m-2">
-        </CardEventImageBackground>
+    <div class=" flex p-4 flex-wrap justify-center justify-items-center items-center m-2">
+        <CardEventImageBG :titleContent="data.titleContent" :titleFont="data.titleFont" :titleColor="data.titleColor"
+            :descriptionContent="props.descriptionContent" :descriptionFont="data.descriptionFont"
+            :descriptionColor="data.descriptionColor" :dateFont="data.dateFont" :dateColor="data.dateColor"
+            :locationFont="data.locationFont" :locationColor="data.locationColor" :locationContent="data.locationContent"
+            :imageContent="data.imageContent" :dateContent="`On ${data.when}   from ${data.from} till ${data.to}`"
+            class="p-2 m-2">
+        </CardEventImageBG>
         <CardEventImageTop :titleContent="data.titleContent" :titleFont="data.titleFont" :titleColor="data.titleColor"
             :descriptionContent="data.descriptionContent" :descriptionFont="data.descriptionFont"
             :descriptionColor="data.descriptionColor" :dateFont="data.dateFont" :dateColor="data.dateColor"
@@ -41,13 +41,13 @@ const props = defineProps({
 });
 const styleOptions = {
     titleFont: "Caveat",
-    titleColor: "#7c2d12",
+    titleColor: "Gray",
     descriptionFont: "Caveat",
-    descriptionColor: "#7c2d12",
+    descriptionColor: "Gray",
     dateFont: "Caveat",
-    dateColor: "#7c2d12",
+    dateColor: "Gray",
     locationFont: "Caveat",
-    locationColor: "#7c2d12",
+    locationColor: "Gray",
 }
 const data = { ...props, ...styleOptions }
 </script>
