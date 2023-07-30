@@ -4,16 +4,13 @@
     <FormImageOptions v-if="display == `EVENTIMAGES`" @imagechosen="onEventImageSelected"></FormImageOptions>
     <FormEventTemplate v-if="display == `EVENTTEMPLATES`" :titleContent="model.titleContent"
         :imageContent="model.imageContent" :descriptionContent="model.descriptionContent"
-        :locationContent="model.locationContent" :when="model.when" :from="model.from" :to="model.to"></FormEventTemplate>
-    <FormEventTemplate :titleContent="model.titleContent" :imageContent="model.imageContent"
-        :descriptionContent="model.descriptionContent" :locationContent="model.locationContent" :when="model.when"
-        :from="model.from" :to="model.to"></FormEventTemplate>
+        :locationContent="model.locationContent" :when="model.when" :from="model.from" :to="model.to"
+        @templatechosen="onEventTemplateSelected"></FormEventTemplate>
 </template>
 
 <script setup lang="ts">
 const model = reactive<Partial<EventCard>>({});
 const display = ref('EVENTOPTIONS');
-
 const onEventypeSelected = (type: string) => {
     display.value = 'EVENTDETAILS';
     model.eventTypeId = type;
@@ -31,9 +28,14 @@ const onEventImageSelected = (data: any) => {
     model.imageContent = data;
     display.value = 'EVENTTEMPLATES';
 }
-const onEventTemplateSelected = () => {
-    display.value = 'EVENTINVITES';
-    console.log("onEventTemplateSelected");
+const onEventTemplateSelected = (data: any, template: String) => {
+    display.value = 'EVENTTEMPLATES';
+    const modeldata: EventCard = { ...model, ...data };
+    for (const [key, value] of Object.entries(modeldata)) {
+        // @ts-ignore
+        model[key] = value;
+    }
+    console.log("onEventTemplateSelected", { model }, template);
 }
 const onInviteCompleted = () => {
     display.value = 'COMPLETE';
