@@ -10,6 +10,7 @@ export default defineAppConfig({
     storageBucketId: process.env.STORAGEBUCKETID,
     messengarId: process.env.FIREBASE_MESSAGINGSENDERID,
   },
+  
   eventTypeList: [
     { id: "BIRTHDAY", label: "Birthday", icon: "fluent-emoji:birthday-cake" },
     { id: "WEDDING", label: "Wedding", icon: "emojione:wedding" },

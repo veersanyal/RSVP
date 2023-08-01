@@ -1,3 +1,20 @@
+// create a function to fetch the routes from the API
+const resource = 'https://us-central1-rsvp-e9540.cloudfunctions.net/api/card/';
+const getCardRoutes = async () => {
+  try {
+    const res = await fetch(resource);
+    if (res.ok) {
+      const data = await res.json();
+      return data.map((card: any) => '/card/' + card.id);
+    }
+    else {
+      return ['/card/85723552'];
+    };
+  } catch (e) {
+    console.log("error is ", { e });
+    return ['/card/85723552'];
+  };
+};
 export default defineNuxtConfig({
   devtools: { enabled: true },
   vite: {
@@ -29,6 +46,18 @@ export default defineNuxtConfig({
         }
       }
     }
+  },
+  ssr: true, // this should be set to true for static websites
+  hooks: {
+    async 'nitro:config'(nitroConfig) {
+      // fetch the routes from our function above
+      const slugs = await getCardRoutes();
+      // add the routes to the nitro config
+      if (slugs.length) {
+        //@ts-ignore
+        nitroConfig.prerender.routes.push(...slugs);
+      }
+    },
   },
   runtimeConfig: {
     public: {

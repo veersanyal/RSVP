@@ -28,14 +28,17 @@ const onEventImageSelected = (data: any) => {
     model.imageContent = data;
     display.value = 'EVENTTEMPLATES';
 }
-const onEventTemplateSelected = (data: any, template: String) => {
+const onEventTemplateSelected = async (data: any, template: string) => {
     display.value = 'EVENTTEMPLATES';
     const modeldata: EventCard = { ...model, ...data };
     for (const [key, value] of Object.entries(modeldata)) {
         // @ts-ignore
         model[key] = value;
     }
-    console.log("onEventTemplateSelected", { model }, template);
+    model.templateType = template;
+    console.log("onEventTemplateSelected", { model });
+    const { save } = useCard();
+    const card = await save(model);
 }
 const onInviteCompleted = () => {
     display.value = 'COMPLETE';

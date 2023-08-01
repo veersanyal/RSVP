@@ -4,7 +4,6 @@ import { Request, Response } from "express";
 import firebase from "firebase/compat/app";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { userCreateReq } from "./schema.js";
-import { sendRegisterMail } from "../mail/service.js";
 import {
   errors,
   roles as UserRoles,

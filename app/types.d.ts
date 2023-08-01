@@ -36,4 +36,16 @@ interface EventCard {
   dateColor: ?string;
   locationFont: ?string;
   locationColor: ?string;
+  locationBlend?: string;
+  descriptionBlend?: string;
+  titleBlend?: string;
+  dateBlend?: string;
+  locationWeight?: string;
+  descriptionWeight?: string;
+  titleWeight?: string;
+  dateWeight?: string;
+  locationSize?: string;
+  descriptionSize?: string;
+  titleSize?: string;
+  dateSize?: string;
 }
