@@ -6,7 +6,9 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "app:deploy": "nuxt generate && firebase deploy --only hosting",
+    "function:deploy": "cd ./functions && npm run deploy"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
