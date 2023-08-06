@@ -1,16 +1,16 @@
 <template >
     <div
-        class="bg-white shadow-xl ring-1 ring-gray-900/5 sm:mx-auto w-96 sm:rounded-lg min-h-[460px] border shadow-lg cursor-pointer hover:transform hover:scale-105 duration-300">
+        class="bg-white  ring-1 ring-gray-900/5 sm:mx-auto w-96 sm:rounded-lg min-h-[460px] border shadow-lg cursor-pointer hover:transform hover:scale-105 duration-300">
         <div class="flex justify-center">
             <nuxt-img provider="imagekit" :src="data.imageContent" height="460px"
                 class="w-full h-[250px] object-cover border-16 rounded-lg border-spacing-4" alt="" />
         </div>
-        <div class="block w-full p-2 ">
-            <div class="flex justify-center text-ellipsis">
+        <div class="block w-full p-2">
+            <div class="flex justify-center items-center text-ellipsis ">
                 <FontChanger :color=data.titleColor v-model:content="data.titleContent" v-model:customfont="data.titleFont"
                     v-model:customcolor="data.titleColor" v-model:customblend="data.titleBlend"
                     v-model:customweight="data.titleWeight" v-model:customsize="data.titleSize"
-                    class="block mb-3 p-2 text-4xl font-semibold tracking-tight text-ellipsis overflow-hidden " />
+                    class="block mb-3 p-2 text-4xl font-semibold justify-center text-ellipsis  overflow-hidden " />
             </div>
             <div class="flex justify-center text-ellipsis">
                 <FontChanger v-model:content="data.descriptionContent" v-model:customfont="data.descriptionFont"

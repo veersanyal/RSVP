@@ -10,10 +10,7 @@ import { onAuthStateChanged, getAuth } from 'firebase/auth';
     <!--logo and Search bar-->
     <div class="flex w-full justify-center items-center text-primary">
       <!-- Logo  -->
-      <img
-        :src="appConfig.logoImage ? appConfig.logoImage : '/logo.png'"
-        class="justify-center md:px-8 w-32 md:w-48"
-      />
+      <img :src="appConfig.logoImage ? appConfig.logoImage : '/logo.png'" class="justify-center md:px-8 w-32 md:w-48" />
       <!--Search Bar -->
       <AppSearch class="w-full hidden md:block min-w-60" @search="handleSearch">
       </AppSearch>
@@ -27,32 +24,26 @@ import { onAuthStateChanged, getAuth } from 'firebase/auth';
 </template>
 <script setup lang="ts">
 import { onAuthStateChanged, getAuth } from "firebase/auth";
-
-const handleSearch = (searchInput: String) => {
-  console.log(searchInput);
-};
-const appConfig = useAppConfig();
 let currentUser: any = reactive;
-let popperstate = ref(false);
 const { $logout, $fireBaseApp } = useNuxtApp();
 if (process.client) {
   if (getAuth($fireBaseApp).currentUser) {
     currentUser = getAuth($fireBaseApp).currentUser;
-    console.log(currentUser, "current user from firebaseauthcurrentuser");
   }
   onAuthStateChanged(getAuth($fireBaseApp), (user) => {
     if (user) {
       currentUser = user;
-      console.log(currentUser, "current user from onAuthStateChanged");
     } else {
       currentUser.value = {};
-      console.log(
-        currentUser,
-        "current user from onAuthStateChanged value reset"
-      );
     }
   });
 }
+const handleSearch = (searchInput: String) => {
+  console.log(searchInput);
+};
+const appConfig = useAppConfig();
+let popperstate = ref(false);
+
 const LoggedInAppMenu = [
   { title: "My Orders", icon: "mdi:package", link: "/" },
   { title: "My Profile", icon: "mdi:account", link: "/" },

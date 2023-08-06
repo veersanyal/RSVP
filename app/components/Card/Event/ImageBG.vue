@@ -8,19 +8,20 @@
       <FontChanger :color=data.titleColor v-model:content="data.titleContent" v-model:customfont="data.titleFont"
         v-model:customcolor="data.titleColor" v-model:customblend="data.titleBlend"
         v-model:customweight="data.titleWeight" v-model:customsize="data.titleSize"
-        class="flex justify-center p-2 mb-3 text-4xl font-semibold tracking-tight text-ellipsis overflow-hidden  " />
+        class="flex justify-center p-2 mb-3 text-4xl font-semibold tracking-tight text-ellipsis overflow-hidden text-center " />
       <FontChanger v-model:content="data.descriptionContent" v-model:customfont="data.descriptionFont"
         v-model:customcolor="data.descriptionColor" :color=data.descriptionColor
         v-model:customblend="data.descriptionBlend" v-model:customweight="data.descriptionWeight"
-        v-model:customsize="data.descriptionSize" class="flex justify-center leading-normal text-xl  pt-4 sm:pt-0" />
+        v-model:customsize="data.descriptionSize"
+        class="flex justify-center leading-normal text-xl  pt-4 sm:pt-0 text-center" />
       <FontChanger v-model:content="data.dateContent" v-model:customfont="data.dateFont"
         v-model:customcolor="data.dateColor" :color=data.dateColor v-model:customblend="data.dateBlend"
         v-model:customweight="data.dateWeight" v-model:customsize="data.dateSize"
-        class="flex justify-center leading-normal font-bold text-sm  pt-4 sm:pt-2" />
+        class="flex justify-center leading-normal font-bold text-sm  pt-4 sm:pt-2 text-center" />
       <FontChanger v-model:content="data.locationContent" v-model:customfont="data.locationFont"
         v-model:customcolor="data.locationColor" :color=data.locationColor v-model:customblend="data.locationBlend"
         v-model:customweight="data.dateWeight" v-model:customsize="data.locationSize"
-        class="block leading-normal font-bold text-sm  pt-2 " />
+        class="block leading-normal font-bold text-sm  pt-2 text-center" />
     </div>
   </div>
 </template>

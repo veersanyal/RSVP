@@ -33,7 +33,6 @@ const getComponent = (name: string) => {
             return imagedefault;
     }
 };
-console.log(cards);
 </script>
 <style lang="">
     

@@ -36,7 +36,6 @@ const onEventTemplateSelected = async (data: any, template: string) => {
         model[key] = value;
     }
     model.templateType = template;
-    console.log("onEventTemplateSelected", { model });
     const { save } = useCard();
     const card = await save(model);
 }

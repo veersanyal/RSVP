@@ -13,7 +13,6 @@ export class RouterBase {
     this.schema = schema;
     this.entity = entity;
   }
-
   async addRoutes(app: Application) {
     app.get(this.entity + "/health", (req: Request, res: Response) => {
       this.controller.health(req, res);
@@ -25,7 +24,6 @@ export class RouterBase {
         this.controller.create(req, res);
       },
     ]);
-
     app.get(this.entity, (req: Request, res: Response) => {
       this.controller.all(req, res);
     });

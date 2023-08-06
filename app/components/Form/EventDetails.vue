@@ -34,7 +34,6 @@
 <script setup lang="ts">
 const config = useAppConfig();
 const submit = (value: any) => {
-    console.log("submit", value);
     emit('detailschosen', value);
 }
 const emit = defineEmits<{
