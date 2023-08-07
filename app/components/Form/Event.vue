@@ -38,6 +38,11 @@ const onEventTemplateSelected = async (data: any, template: string) => {
     model.templateType = template;
     const { save } = useCard();
     const card = await save(model);
+    const router = useRouter();
+    router.push({
+        path: "/card/" + card.id
+    });
+
 }
 const onInviteCompleted = () => {
     display.value = 'COMPLETE';

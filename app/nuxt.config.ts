@@ -15,8 +15,10 @@ const getCardRoutes = async () => {
     return ['/card/85723552'];
   };
 };
+
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  nitro: { preset: 'firebase' },
   vite: {
     vue: {
       script: {
@@ -58,6 +60,9 @@ export default defineNuxtConfig({
         nitroConfig.prerender.routes.push(...slugs);
       }
     },
+  },
+  routeRules: {
+    '/card/**': { ssr: false }
   },
   runtimeConfig: {
     public: {

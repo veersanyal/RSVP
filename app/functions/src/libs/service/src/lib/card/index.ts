@@ -5,8 +5,8 @@ import { getConfig } from "../../../../configuration/src/index.js";
 import e, { Request, Response, Application } from "express";
 export * from "./schema.js";
 const schema = cardSchema;
-const collection = "cards";
-const entity = "card";
+const collection = getConfig().settings.collection.card as string;
+const path = getConfig().settings.path.card as string;
 const projectId = getConfig().firebaseConfig.projectId as string;
 const service = new CardService(new ModelBase(schema, collection, projectId));
 class CardController extends ControllerBase {
@@ -25,19 +25,18 @@ class CardController extends ControllerBase {
     }
 }
 class CardRouter extends RouterBase {
+
     constructor() {
-        super(new CardController(), schema, entity);
+        super(new CardController(), schema, path);
     }
     controller = new CardController();
     async addRoutes(app: Application) {
-        console.log("adding routes for " + entity);
+        console.log("adding routes for " + path);
         super.addRoutes(app);
-        app.post(entity + "/:id/setRSVP", (req: Request, res: Response) => {
+        app.post(path + "/:id/setRSVP", (req: Request, res: Response) => {
             this.controller.setRSVP(req, res);
         });
     }
 }
-export const cardRouter = new CardRouter();
-export const cardService = service;
-export const cardController = new CardController();
-
+const cardRouter = new CardRouter();
+export { cardRouter };

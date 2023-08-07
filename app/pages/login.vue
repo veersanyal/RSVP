@@ -12,7 +12,6 @@
 </template>
 <script setup lang="ts">
 const postSignIn = () => {
-  console.log("Signed In")
   const router = useRouter();
   router.push({
     path: "/",

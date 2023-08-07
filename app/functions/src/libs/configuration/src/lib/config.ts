@@ -39,8 +39,11 @@ export function getConfig() {
     settings: {
       projectId: process.env["NUXT_GCP_PROJECTID"] || "rsvp-e9540",
       collection: {
-        tenant: "tenant",
+        card: "card",
       },
+      path: {
+        card: "/card",
+      }
     },
   };
 }

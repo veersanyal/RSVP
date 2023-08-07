@@ -2,13 +2,15 @@
   "name": "app",
   "private": true,
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
+    "app:build": "nuxt build",
+    "app:dev": "nuxt dev",
+    "app:generate": "nuxt generate",
+    "app:preview": "nuxt preview",
     "postinstall": "nuxt prepare",
+    "deploy": "nuxt build && firebase deploy --only hosting, functions",
     "app:deploy": "nuxt generate && firebase deploy --only hosting",
-    "function:deploy": "cd ./functions && npm run deploy"
+    "function:deploy": "cd ./functions && npm run deploy",
+    "function:serve": "cd ./functions && npm run serve"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
@@ -29,6 +31,7 @@
     "@vueuse/core": "^10.2.1",
     "firebase": "^9.22.2",
     "firebase-admin": "^11.9.0",
+    "firebase-functions": "^4.4.1",
     "firebaseui": "^6.0.2",
     "vue3-popper": "^1.5.0"
   }
