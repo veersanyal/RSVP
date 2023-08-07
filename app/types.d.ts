@@ -48,4 +48,5 @@ interface EventCard {
   descriptionSize?: string;
   titleSize?: string;
   dateSize?: string;
+  dateContent?: string;
 }

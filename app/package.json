@@ -7,7 +7,7 @@
     "app:generate": "nuxt generate",
     "app:preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "deploy": "nuxt build && firebase deploy --only hosting, functions",
+    "deploy": "nuxt build && firebase deploy --only hosting,functions",
     "app:deploy": "nuxt generate && firebase deploy --only hosting",
     "function:deploy": "cd ./functions && npm run deploy",
     "function:serve": "cd ./functions && npm run serve"

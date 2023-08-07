@@ -9,7 +9,8 @@
             <button class="p-4 rounded-xl bg-green-600 text-white font-bold w-32 m-2 hover:bg-green-800" @click="accept">
                 Yes
             </button>
-            <button class="p-4 rounded-xl bg-transparent border w-32 border-gray-400 m-2 hover:bg-gray-200 ">
+            <button class="p-4 rounded-xl bg-transparent border w-32 border-gray-400 m-2 hover:bg-gray-200"
+                @click="decline">
                 No
             </button>
         </div>
@@ -41,19 +42,33 @@ if (process.client) {
         }
     });
 }
-const accept = () => {
-    console.log("currentUser", currentUser.value, getAuth($fireBaseApp).currentUser);
+const accept = async () => {
+    currentUser.value = getAuth($fireBaseApp).currentUser;
     if (currentUser.value.uid) {
-        console.log("Accepted")
+        displayLogin.value = false;
+        const data = {
+            id: pageId, rsvp: { uid: currentUser.value.uid, name: currentUser.value.displayName, email: currentUser.value.email, photoURL: currentUser.value.photoURL, attending: true }
+        }
+        const { setRSVP } = useCard();
+        const response = await setRSVP(data);
     }
     else {
         displayLogin.value = true;
     }
-    console.log("Accepted")
-
 }
-const decline = () => {
-    console.log("Declined")
+const decline = async () => {
+    currentUser.value = getAuth($fireBaseApp).currentUser;
+    if (currentUser.value.uid) {
+        displayLogin.value = false;
+        const data = {
+            id: pageId, rsvp: { uid: currentUser.value.uid, name: currentUser.value.displayName, email: currentUser.value.email, photoURL: currentUser.value.photoURL, attending: false }
+        }
+        const { setRSVP } = useCard();
+        const response = await setRSVP(data);
+    }
+    else {
+        displayLogin.value = true;
+    }
 }
 
 </script>

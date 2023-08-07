@@ -36,5 +36,18 @@ export const useCard = () => {
         const responsedata = await response.json();
         return responsedata;
     }
-    return { save, getAll, get };
+    const setRSVP = async (data: any) => {
+        const response = await fetch(resource + data.id + '/setRSVP', {
+            method: 'POST',
+            headers: {
+                Accept: 'application.json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data.rsvp)
+        });
+        const responsedata = await response.json();
+        return responsedata;
+    }
+
+    return { save, getAll, get, setRSVP };
 }

@@ -6,7 +6,8 @@ export class CardService extends ServiceBase {
     async setRSVP(id: string, rsvp: any) {
         const currentCard = await this.get(id);
         if (currentCard) {
-            const index = currentCard.rsvps.find((r: any) => r.userid === rsvp.userid);
+            if (!currentCard.rsvps) currentCard.rsvps = [];
+            const index = currentCard.rsvps.find((r: any) => r.uid == rsvp.uid);
             if (index >= 0) {
                 currentCard.rsvps[index] = rsvp;
             }
